@@ -18,21 +18,25 @@ int main()
 	int i;													//最初のループ制御用の変数
 	int k;													//2回目のループ制御用の変数
 	int x;													//iやkの値を変えないために使う
-	int boucount =1;										//使った棒の数を数える
-	int kekkacount;											//条件に合った組み合わせの数を数える
+	int boucount =1;											//使った棒の数を数える
+	int kekkacount;												//条件に合った組み合わせの数を数える
 	for(i=o;i<255;i++)
-	{														//格納スペースのすべて
+	{													//格納スペースのすべて
 		if(bou[i] !='\0')
-		{													//中に要素がなくなるまで
-			for(i=k;k<N-1;)
+		{												//中に要素がなくなるまで
+			for(k =i;k<N-1;)
 			{
-				x = k+1;
-				bou[k] + bou[x];
+				x = bou[k] + bou[k+1];
 				boucount++;
-				x++;
-				if(boucount == N)
-				{
 				
+				if(boucount == N)
+				{										//使った棒の個数が指定と等しい
+					if(x == L)
+					{									//棒を足した合計が指定と等しい
+						kekkacount++;							//等しいものを数える
+					}
+					k =0;									//0に戻す
+					boucount =0;
 				}
 			}
 		}else{
